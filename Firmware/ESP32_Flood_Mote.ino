@@ -95,8 +95,6 @@ void loop() {
   doc["water_height"] = water_height;
   doc["flow_rate"] = flow_rate;
   doc["temp_k"] = temp_k;
-  doc["lat"] = 34.0151; // Hardcoded coordinate
-  doc["lon"] = 71.5249;
 
   String payload;
   serializeJson(doc, payload);

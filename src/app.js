@@ -4,7 +4,10 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 
 const nodeRoutes = require('./routes/nodes');
+const demoStreamRoutes = require('./routes/demoStream');
 const errorHandler = require('./middleware/errorHandler');
+const logger = require('./middleware/logger');
+
 
 const createApp = () => {
   const app = express();
@@ -12,11 +15,12 @@ const createApp = () => {
   // ── Security & logging ──────────────────────────────────────────────────────
   app.use(helmet());
   app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
+  app.use(logger);
 
   // ── CORS — allow React dashboard origin ─────────────────────────────────────
   app.use(
     cors({
-      origin: process.env.CLIENT_URL || 'http://localhost:3000',
+      origin: process.env.CLIENT_URL || 'http://localhost:5173',
       methods: ['GET', 'POST', 'PATCH', 'DELETE'],
       credentials: true,
     })
@@ -38,6 +42,9 @@ const createApp = () => {
 
   // ── API Routes ───────────────────────────────────────────────────────────────
   app.use('/api/nodes', nodeRoutes);
+  app.use('/api/demo', demoStreamRoutes);
+
+
 
   // ── 404 handler ──────────────────────────────────────────────────────────────
   app.use((req, res) => {

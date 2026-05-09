@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import LiveMapPage from './components/LiveMapPage'
 import NodeAnalyticsPage from './components/NodeAnalyticsPage'
 import SystemAlertsPage from './components/SystemAlertsPage'
+import LiveDemoDashboard from './components/LiveDemoDashboard'
 
 function App() {
   const [activeMenu, setActiveMenu] = useState('map')
@@ -9,8 +10,10 @@ function App() {
   const menuItems = [
     { id: 'map', label: 'Live Map' },
     { id: 'analytics', label: 'Node Analytics' },
-    { id: 'alerts', label: 'System Alerts' }
+    { id: 'alerts', label: 'System Alerts' },
+    { id: 'demo', label: 'Live Demo Feed' },
   ]
+
 
   const renderPage = () => {
     switch(activeMenu) {
@@ -20,10 +23,13 @@ function App() {
         return <NodeAnalyticsPage />
       case 'alerts':
         return <SystemAlertsPage />
+      case 'demo':
+        return <LiveDemoDashboard />
       default:
         return <LiveMapPage />
     }
   }
+
   return (
     <div className="flex h-screen bg-brand-grey font-sans">
       

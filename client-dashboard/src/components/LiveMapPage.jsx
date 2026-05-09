@@ -1,9 +1,11 @@
-import React from 'react';
+
 import MapViewer from './MapViewer';
 import NodeChart from './NodeChart';
 import SystemAlerts from './SystemAlerts';
+import { useSelectedNode } from '../context/NodeContext';
 
 export default function LiveMapPage() {
+  const { selectedNodeId } = useSelectedNode();
   return (
     <main className="flex-1 overflow-x-hidden overflow-y-auto bg-brand-grey p-8">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 h-full">
@@ -22,9 +24,9 @@ export default function LiveMapPage() {
         {/* Charts Container */}
         <div className="col-span-1 flex flex-col gap-8">
           <div className="bg-white h-1/2 rounded-xl shadow-sm border border-gray-100 flex flex-col overflow-hidden">
+
             <div className="p-4 border-b border-gray-100 font-medium text-brand-navy flex justify-between items-center">
-              <span>Node 0x4A1 Metrics</span>
-              <span className="text-xs bg-red-100 text-red-600 px-2 py-1 rounded-full font-bold">DANGER</span>
+              <span>{selectedNodeId ? `${selectedNodeId} Metrics` : 'Select a node'}</span>
             </div>
             <div className="flex-1 bg-white relative">
               <NodeChart />
