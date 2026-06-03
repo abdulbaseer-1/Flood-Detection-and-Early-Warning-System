@@ -4,10 +4,10 @@
 #include <DHT.h>
 
 // --- Project Configuration ---
-const char* ssid = "YOUR_WIFI_SSID";
-const char* password = "YOUR_WIFI_PASSWORD";
-const char* mqtt_server = "YOUR_BROKER_IP"; // E.g., "192.168.1.10"
-const char* mote_id = "MOTE_Peshawar_01";
+const char* ssid = "Home 1 2.4G";
+const char* password = "asd12345";
+const char* mqtt_server = "192.168.100.27"; // pc ip
+const char* mote_id = "node_kabul_nowshera_western_entry";
 
 // --- Pin Assignments ---
 #define TRIG_PIN 5
@@ -72,6 +72,9 @@ void setup() {
 }
 
 void loop() {
+  bool ok = client.publish("flood/telemetry", "{\"test\":123}");
+  Serial.println(ok ? "PUBLISH OK" : "PUBLISH FAIL");
+
   if (!client.connected()) reconnect();
   client.loop();
 
