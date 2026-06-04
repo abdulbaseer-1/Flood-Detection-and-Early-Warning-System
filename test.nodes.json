@@ -1,0 +1,189 @@
+[{
+  "_id": {
+    "$oid": "6a208322facbde2c99bf6943"
+  },
+  "nodeId": "node_kabul_nowshera_western_entry",
+  "label": "Kabul River — Western Entry (Nizampur Reach)",
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      71.940833,
+      34.016333
+    ]
+  },
+  "elevation_m": 261.8,
+  "canal_depth_m": 8.5,
+  "bankfull_capacity_m3": 920000,
+  "catchment_area_m2": 3200000,
+  "runoff_coefficient": 0.62,
+  "calibratedWaterHeight": 3.654,
+  "flowRate": 0.3123,
+  "temperature": 310.91,
+  "rainfall": 0,
+  "topology_type": "urban",
+  "parentNodes": [],
+  "status": "normal",
+  "lastSeen": {
+    "$date": "2026-06-04T05:39:22.755Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-04T05:39:22.756Z"
+  },
+  "upstreamContribution": 0
+},
+{
+  "_id": {
+    "$oid": "6a208322facbde2c99bf6944"
+  },
+  "nodeId": "node_kabul_nowshera_chowki_dalgran",
+  "label": "Kabul River — Chowki Dalgran Reach",
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      71.952806,
+      34.016389
+    ]
+  },
+  "elevation_m": 258.9,
+  "canal_depth_m": 9,
+  "bankfull_capacity_m3": 1150000,
+  "catchment_area_m2": 4150000,
+  "runoff_coefficient": 0.67,
+  "calibratedWaterHeight": 3.704,
+  "flowRate": 0.3163,
+  "temperature": 311.01,
+  "rainfall": 0,
+  "topology_type": "urban",
+  "parentNodes": [
+    {
+      "nodeId": "node_kabul_nowshera_western_entry",
+      "distance_m": 1380.1,
+      "elevation_diff_m": -2.9
+    }
+  ],
+  "status": "normal",
+  "lastSeen": {
+    "$date": "2026-06-04T05:39:22.756Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-04T05:39:22.756Z"
+  },
+  "upstreamContribution": 0.2848
+},
+{
+  "_id": {
+    "$oid": "6a208322facbde2c99bf6945"
+  },
+  "nodeId": "node_kabul_nowshera_city_bridge",
+  "label": "Kabul River — Nowshera City Bridge",
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      71.966194,
+      34.011694
+    ]
+  },
+  "elevation_m": 256.1,
+  "canal_depth_m": 10.5,
+  "bankfull_capacity_m3": 1380000,
+  "catchment_area_m2": 5800000,
+  "runoff_coefficient": 0.81,
+  "calibratedWaterHeight": 3.754,
+  "flowRate": 0.3203,
+  "temperature": 311.11,
+  "rainfall": 0,
+  "topology_type": "urban",
+  "parentNodes": [
+    {
+      "nodeId": "node_kabul_nowshera_chowki_dalgran",
+      "distance_m": 1356.4,
+      "elevation_diff_m": -2.8
+    }
+  ],
+  "status": "normal",
+  "lastSeen": {
+    "$date": "2026-06-04T05:39:22.756Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-04T05:39:22.756Z"
+  },
+  "upstreamContribution": 0.5491
+},
+{
+  "_id": {
+    "$oid": "6a208322facbde2c99bf6946"
+  },
+  "nodeId": "node_kabul_nowshera_cantonment",
+  "label": "Kabul River — Cantonment Flank",
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      71.975444,
+      34.006583
+    ]
+  },
+  "elevation_m": 253.4,
+  "canal_depth_m": 12,
+  "bankfull_capacity_m3": 1820000,
+  "catchment_area_m2": 7200000,
+  "runoff_coefficient": 0.73,
+  "calibratedWaterHeight": 3.804,
+  "flowRate": 0.3243,
+  "temperature": 311.21,
+  "rainfall": 0,
+  "topology_type": "urban",
+  "parentNodes": [
+    {
+      "nodeId": "node_kabul_nowshera_city_bridge",
+      "distance_m": 1599.7,
+      "elevation_diff_m": -2.7
+    }
+  ],
+  "status": "normal",
+  "lastSeen": {
+    "$date": "2026-06-04T05:39:22.756Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-04T05:39:22.756Z"
+  },
+  "upstreamContribution": 0.7814
+},
+{
+  "_id": {
+    "$oid": "6a208322facbde2c99bf6947"
+  },
+  "nodeId": "node_kabul_nowshera_eastern_floodplain",
+  "label": "Kabul River — Eastern Floodplain Exit",
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      71.98575,
+      34.009
+    ]
+  },
+  "elevation_m": 250.8,
+  "canal_depth_m": 14,
+  "bankfull_capacity_m3": 2350000,
+  "catchment_area_m2": 9100000,
+  "runoff_coefficient": 0.57,
+  "calibratedWaterHeight": 3.854,
+  "flowRate": 0.3283,
+  "temperature": 311.31,
+  "rainfall": 0,
+  "topology_type": "urban",
+  "parentNodes": [
+    {
+      "nodeId": "node_kabul_nowshera_cantonment",
+      "distance_m": 1469.2,
+      "elevation_diff_m": -2.6
+    }
+  ],
+  "status": "normal",
+  "lastSeen": {
+    "$date": "2026-06-04T05:39:22.756Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-04T05:39:22.756Z"
+  },
+  "upstreamContribution": 1.0025
+}]
