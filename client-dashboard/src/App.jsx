@@ -36,7 +36,7 @@ function App() {
       {/* 1. Sidebar Navigation */}
       <div className="w-64 bg-brand-navy text-white flex flex-col shadow-xl z-20">
         <div className="p-6 text-2xl font-bold border-b border-gray-800 text-brand-teal tracking-wider">
-          AFPEWS
+          Flood Detection & Early Warning System
         </div>
         <div className="p-4 flex-1">
           <p className="text-gray-500 text-xs uppercase font-semibold mb-4 tracking-wider">Menu</p>
@@ -65,7 +65,6 @@ function App() {
         <header className="bg-white shadow-sm p-4 px-8 flex justify-between items-center z-10">
           <div>
             <h2 className="text-2xl font-semibold text-brand-navy">Network Overview</h2>
-            <p className="text-sm text-gray-500">Mardan Drainage Canal System</p>
           </div>
           <div className="bg-brand-teal/10 text-brand-teal border border-brand-teal/20 px-4 py-2 rounded-full font-medium text-sm flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-brand-teal animate-pulse"></div>

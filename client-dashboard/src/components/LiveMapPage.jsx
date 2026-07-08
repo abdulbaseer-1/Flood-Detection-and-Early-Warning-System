@@ -3,9 +3,12 @@ import MapViewer from './MapViewer';
 import NodeChart from './NodeChart';
 import SystemAlerts from './SystemAlerts';
 import { useSelectedNode } from '../context/NodeContext';
+import { useAlerts } from '../context/AlertsContext'; 
 
 export default function LiveMapPage() {
   const { selectedNodeId } = useSelectedNode();
+  const { alerts } = useAlerts();
+
   return (
     <main className="flex-1 overflow-x-hidden overflow-y-auto bg-brand-grey p-8">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 h-full">
@@ -41,7 +44,7 @@ export default function LiveMapPage() {
               </div>
             </div>
             <div className="flex-1 bg-white relative overflow-hidden">
-              <SystemAlerts />
+              <SystemAlerts alerts={alerts} />
             </div>
           </div>
         </div>

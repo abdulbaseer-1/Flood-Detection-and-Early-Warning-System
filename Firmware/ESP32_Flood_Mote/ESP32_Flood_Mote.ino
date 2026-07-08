@@ -72,8 +72,9 @@ void setup() {
 }
 
 void loop() {
-  bool ok = client.publish("flood/telemetry", "{\"test\":123}");
-  Serial.println(ok ? "PUBLISH OK" : "PUBLISH FAIL");
+  // JUST FOR TEST
+  // bool ok = client.publish("flood/telemetry", "{\"test\":123}");
+  // Serial.println(ok ? "PUBLISH OK" : "PUBLISH FAIL");
 
   if (!client.connected()) reconnect();
   client.loop();
@@ -97,7 +98,7 @@ void loop() {
   doc["mote_id"] = mote_id;
   doc["water_height"] = water_height;
   doc["flow_rate"] = flow_rate;
-  doc["temp_k"] = temp_k;
+  doc["temp_k"] = isnan(temp_k) ? 300 : temp_k;
 
   String payload;
   serializeJson(doc, payload);

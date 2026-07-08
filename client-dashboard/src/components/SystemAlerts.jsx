@@ -1,4 +1,6 @@
 export default function SystemAlerts({ alerts = [] }) {
+  // Removed the unused `const { alerts: contextAlerts } = useAlerts();` line
+
   const getBadgeStyle = (status) => {
     if (status === 'critical') return 'bg-red-100 text-red-700 border-red-200';
     if (status === 'warning')  return 'bg-yellow-100 text-yellow-700 border-yellow-200';

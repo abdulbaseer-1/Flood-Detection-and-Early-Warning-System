@@ -38,13 +38,28 @@ router.post('/start', async (req, res) => {
           let water_level_m;
           let rainfall_mmhr;
 
+          // if (scenario === 'spike') {
+          //   // ── Flash spike: rises fast to peak at 40%, drops back down ──
+          //   // Uses a bell curve shape: 4 * progress * (1 - progress)
+          //   // peaks at progress=0.5 with value 1.0, starts and ends near 0
+          //   const spikeCurve = 4 * progress * (1 - progress); // 0 → 1 → 0
+          //   water_level_m  = 0.5 + spikeCurve * 4.5 + idx * 0.05;  // max ~5.0m at peak
+          //   rainfall_mmhr  = Number((2 + spikeCurve * 28).toFixed(2)); // heavy burst rain
+          // }
           if (scenario === 'spike') {
-            // ── Flash spike: rises fast to peak at 40%, drops back down ──
-            // Uses a bell curve shape: 4 * progress * (1 - progress)
-            // peaks at progress=0.5 with value 1.0, starts and ends near 0
-            const spikeCurve = 4 * progress * (1 - progress); // 0 → 1 → 0
-            water_level_m  = 0.5 + spikeCurve * 4.5 + idx * 0.05;  // max ~5.0m at peak
-            rainfall_mmhr  = Number((2 + spikeCurve * 28).toFixed(2)); // heavy burst rain
+            // 1. Calculate exactly how many seconds have elapsed since the demo started
+            const elapsedSeconds = (Date.now() - startedAt) / 1000;
+            
+            // 2. Base configuration
+            const startLevel = 0.5;
+            const risingSpeedMPerSec = 1.0; // 1 meter per second
+            
+            // 3. Continuous linear rise
+            water_level_m = startLevel + (risingSpeedMPerSec * elapsedSeconds) + (idx * 0.05);
+            
+            // 4. Scale rainfall upwards dynamically alongside the water level (capping at 100 mm/hr)
+            const calculatedRain = 2 + (elapsedSeconds * 2); 
+            rainfall_mmhr = Number(Math.min(100, calculatedRain).toFixed(2));
           } else {
             // ── Gradual ramp: rises steadily ──────────────────────────────
             water_level_m  = 0.6 + progress * 3.2 + idx * 0.05;

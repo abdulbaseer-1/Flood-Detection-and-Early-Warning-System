@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import SystemAlerts from './SystemAlerts';
+import { useAlerts } from '../context/AlertsContext';
 
 const BACKEND_URL = 'http://localhost:5000';
 
 export default function SystemAlertsPage() {
-  const [alerts, setAlerts] = useState([]);
+  // FIX: Destructure as an object, matching what your Context Provider sends!
+  const { alerts, setAlerts } = useAlerts(); 
 
   useEffect(() => {
     const fetchAlerts = () => {
@@ -28,9 +30,9 @@ export default function SystemAlertsPage() {
     fetchAlerts();
     const id = setInterval(fetchAlerts, 3000);
     return () => clearInterval(id);
-  }, []);
+  }, [setAlerts]);
 
-  // Derived stats from live data
+  // Derived stats from live data will work perfectly now
   const criticalCount = alerts.filter(a => a.status === 'critical').length;
   const warningCount  = alerts.filter(a => a.status === 'warning').length;
   const otherCount    = alerts.filter(a => a.status !== 'critical' && a.status !== 'warning').length;

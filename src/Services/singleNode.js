@@ -23,7 +23,7 @@ function calcFloodProbability(waterHeight, canalDepth, totalVolume, maxRatedFlow
     // 2. Propagated Reality (Max of local sensors vs incoming parent risk)
     const finalProbability = Math.max(localProb, inheritedProb);
 
-    return Math.min(Number(finalProbability.toFixed(2)), 200); 
+    return Math.min(Number(finalProbability.toFixed(2)), 100); 
 }
 
 function predictSingleNode(config, telemetry, upstreamContribution = 0, inheritedProb = 0) {
